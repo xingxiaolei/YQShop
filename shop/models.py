@@ -6,7 +6,7 @@ from stdimage.utils import UploadToUUID
 class Banner(models.Model):
     name = models.CharField(max_length=10, verbose_name='轮播图名称')
     image = StdImageField(max_length=100,
-                          upload_to = UploadToUUID(path=datetime.now().strftime('banner/%Y%m%d-%H%M%S')),
+                          upload_to = UploadToUUID(path='banner/'),
                           verbose_name='轮播图',
                           variations={'thumbnail':{'width':100, 'height': 75}},
                           default=None

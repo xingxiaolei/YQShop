@@ -22,8 +22,12 @@ from YQShop import settings
 
 xadmin.autodiscover()
 
+from shop.views import Index
+
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('xadmin/', xadmin.site.urls),
-    re_path('media/(?P<path>.*)', serve, {'document_root': settings.MEDIA_ROOT})
+    re_path('media/(?P<path>.*)', serve, {'document_root': settings.MEDIA_ROOT}),
+
+    path('', Index.as_view(), name='index')
 ]
