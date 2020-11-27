@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'reversion',
     'stdimage',
-    'shop'
+    'shop',
+    'DjangoUeditor'
 ]
 
 MIDDLEWARE = [

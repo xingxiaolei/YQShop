@@ -1,0 +1,199 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.more{
+    text-align: right;
+}
+
+.header{
+    width: 100%;
+    height: 60px;
+    background: #9F9F9F;
+    display: flex;
+    justify-content: center;
+}
+.header-cont{
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+}
+.left{
+    display: flex;
+    align-items: center;
+
+}
+.logo{
+    width: 118px;
+    height: 60px;
+}
+.right{
+    width: 500px;
+    height: 38px;
+    border: 1px solid #D0D0D0;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.new .new-title{
+    text-align: center;
+    width: 1200px;
+    font-size: 50px;
+    margin-top: 20px;
+    background: #00FFFF;
+    justify-content: center;
+}
+
+.new-content{
+    width: 1200px;
+}
+
+.new-content ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.new-content ul li{
+    width: 358px;
+    height: 398px;
+    /*background: red;*/
+    margin: 20px;
+    border: 1px double #dddddd;
+    position: relative;
+    overflow: hidden;
+}
+
+/*新品推荐 new 角标*/
+
+.new-content ul li .flag {
+    position: absolute;    /*绝对定位*/
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 74px;
+    background-color: red;
+    color: #fff;
+}
+
+.new-content ul li .flag-left {
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    left: -18px;
+    top: 9px;
+}
+/*******************************************************/
+
+.new-content-img{
+    height: 328px;
+}
+
+.wine-item{
+    height: 70px;
+    width: 100%;
+}
+
+.wine-item-name{
+    height: 30px;
+    width: 100%;
+    font-size: 3px;
+    color: #787878;
+
+}
+.wine-item-info{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wine-price{
+    margin-left: 10px;
+}
+
+.wine-btn{
+    background: #cf0129;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+
+.box-wine{
+    width: 1200px;
+}
+.box-wine-img{
+    height: 266px;
+    width: 100%;
+}
+
+footer{
+    height: 140px;
+    width: 100%;
+    background: #191c25;
+    display: flex;
+    justify-content: center;
+}
+
+.foot-content{
+    width: 960px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

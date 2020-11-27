@@ -14,20 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
-import xadmin
-
+from django.urls import path, re_path, include
+import xadmin, DjangoUeditor
 from django.views.static import serve
 from YQShop import settings
-
-xadmin.autodiscover()
-
 from shop.views import Index
 
+
+xadmin.autodiscover()
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('xadmin/', xadmin.site.urls),
     re_path('media/(?P<path>.*)', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('ueditor/', include('DjangoUeditor.urls')),
 
     path('', Index.as_view(), name='index')
 ]

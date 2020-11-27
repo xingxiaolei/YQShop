@@ -18,5 +18,5 @@ class Index(View):
             'bann': bann
         }
 
-        return render(request, 'index.html', context)
+        return render(request, 'index.html')
 
