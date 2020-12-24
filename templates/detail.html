@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="detail-info">
+        <div class="detail-img">
+            <img src="{{ MEDIA_URL }}{{ goods_img }}" alt="" >
+        </div>
+
+        <div class="detail-info-right">
+            <div class="detail-name">
+                {{ goods_name }}
+                {{ g }}
+            </div>
+            <div class="detail-price">
+                价格：
+                <span>￥{{ goods_price }}</span>
+            </div>
+            <div class="sub">
+                <button type="button" id="want" class="layui-btn layui-btn-warm">提交购买意向</button>
+                <button type="button" id="telphone" class="layui-btn layui-btn-danger">电话咨询</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-text" style="margin: 5%; display: none" id="window"  target="test123">
+			<form class="layui-form" id="book" method="post" lay-filter="example">
+                {% csrf_token %}
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">怎么称呼您</label>
+			    <div class="layui-input-block">
+			      <input type="text" id="bname" name="bid" lay-verify="title" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">联系方式</label>
+			    <div class="layui-input-block">
+			      <input type="text" id="bphone" name="bname" lay-verify="phone" autocomplete="off" placeholder="请输入电话" class="layui-input">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">欲购信息</label>
+			    <div class="layui-input-block">
+			      <input type="text" id="bwish" name="price" lay-verify="title" autocomplete="off" placeholder="请输入内容" class="layui-input">
+			    </div>
+			  </div>
+                <button type="button" id="sub" class="layui-btn layui-btn-warm" value="{{ goods_id }}">提交</button>
+                <button type="button" id="cancle" class="layui-btn layui-btn-warm">取消</button>
+			</form>
+		</div>
+
+        <div class="site-text" style="margin: 5%; display: none" id="window1"  target="test123">
+            <p class="layui-text" style='font-family: "Verdana"; font-size: 22px; color: #a40000;'>13651155780</p>
+        </div>
+
+    <div class="detail-content">
+        {% autoescape off %}
+            {{ goods_detail }}
+        {% endautoescape %}
+    </div>
+
+{% endblock main %}

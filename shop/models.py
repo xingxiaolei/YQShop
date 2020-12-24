@@ -10,7 +10,9 @@ class Banner(models.Model):
                           upload_to = UploadToUUID(path='banner/'),
                           verbose_name='轮播图',
                           variations={'thumbnail':{'width':100, 'height': 75}},
-                          default=None
+                          default=None,
+                          blank=True,
+                          null=True
                           )
     choice = (
         (0, '不展示'),
@@ -87,7 +89,9 @@ class Goods(models.Model):
                           upload_to = UploadToUUID(path='goods/'),
                           verbose_name='商品图',
                           variations={'thumbnail':{'width':100, 'height': 75}},
-                          default=None
+                          default=None,
+                          blank=True,
+                          null=True
                           )
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='商品价格')
     price_range = models.SmallIntegerField(default=1, choices=PRICE_RANGE, verbose_name='价格区间')
@@ -119,3 +123,20 @@ class Goods(models.Model):
 
     image_img.short_description = '商品图'
     image_img.allow_tags = True
+
+
+class WishPool(models.Model):
+    goods_name = models.CharField(max_length=50, verbose_name='欲购商品')
+    name = models.CharField(max_length=10, verbose_name='客户姓名')
+    phone = models.CharField(max_length=11, verbose_name='客户电话')
+    wish = models.CharField(max_length=100, verbose_name='意向内容')
+    trace = models.CharField(max_length=200, verbose_name='跟进', null=True, blank=True, default='')
+    create_time = models.DateTimeField(default=datetime.now(), verbose_name='创建时间')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'wish'
+        verbose_name = '意向池'
+        verbose_name_plural = verbose_name

@@ -18,7 +18,7 @@ from django.urls import path, re_path, include
 import xadmin, DjangoUeditor
 from django.views.static import serve
 from YQShop import settings
-from shop.views import Index
+from shop.views import Index, GoodsList, GoodsDetail, wish, check_goods
 
 
 xadmin.autodiscover()
@@ -28,5 +28,10 @@ urlpatterns = [
     re_path('media/(?P<path>.*)', serve, {'document_root': settings.MEDIA_ROOT}),
     path('ueditor/', include('DjangoUeditor.urls')),
 
-    path('', Index.as_view(), name='index')
+    path('', Index.as_view(), name='index'),
+    re_path('list/(?P<type_id>.*)', GoodsList.as_view(), name='list'),
+    path('detail/', GoodsDetail.as_view(), name='detail'),
+    re_path(r'^wish/$', wish, name='wish'),
+    path('checkgoods/', check_goods, name='checkgoods'),
+
 ]
