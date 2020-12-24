@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner %}
+<div class="layui-carousel" id="test1">
+      <div carousel-item>
+          {% for ban in bann %}
+            <div><img src="{{ MEDIA_URL }}{{ ban.image }}" alt=""></div>
+          {% endfor %}
+      </div>
+    </div>
+{% endblock banner %}
+
+{% block main %}
+<div class="main">
+
+    <div class="new">
+
+        <div class="new-title">新品推荐</div>
+
+        <div class="new-content">
+            <ul>
+
+                <li class="new-wine">
+                    <div class="flag flag-left">New</div>
+                    <a href="">
+                        <img src="" alt="" class="new-content-img">
+                    </a>
+                    <div class="wine-item">
+                        <div class="wine-item-name">【箱】张裕特选级赤霞珠干红葡萄酒750ml*6</div>
+                        <div class="wine-item-info">
+                            <div class="wine-price">
+                                <font size="4px" face="黑体" color="#901a00">
+                                    <b>RMB</b>
+                                </font>
+                                <font size="5px" color="#901a00">
+                                    <b>399.00</b>
+                                </font>
+                            </div>
+                            <div class="wine-btn">
+                                <a href="">
+                                    <font size="3px" color="#fff" face="黑体">立即购买</font>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="box-wine">
+        <img src="" alt="" class="box-wine-img">
+        <div class="more">查看更多>></div>
+        <div class="new-content">
+            <ul>
+
+                <li>
+                    <a href="">
+                        <img src="" alt="" class="new-content-img">
+                    </a>
+                    <div class="wine-item">
+                        <div class="wine-item-name">【箱】张裕特选级赤霞珠干红葡萄酒750ml*6</div>
+                        <div class="wine-item-info">
+                            <div class="wine-price">
+                                <font size="4px" face="黑体" color="#901a00">
+                                    <b>RMB</b>
+                                </font>
+                                <font size="5px" color="#901a00">
+                                    <b>399.00</b>
+                                </font>
+                            </div>
+                            <div class="wine-btn">
+                                <a href="">
+                                    <font size="3px" color="#fff" face="黑体">立即购买</font>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="gift-wine"></div>
+
+    <div class="single-wine"></div>
+</div>
+{% endblock main %}

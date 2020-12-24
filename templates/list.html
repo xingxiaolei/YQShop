@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="list-main">
+{% csrf_token %}
+    <div class="check">
+        <ul class="item">
+            {% if type == '1' %}
+                {% for tag in tags %}
+                    <li>
+                        <div class="item-type">
+                            {{ tag.name }}：
+                            {% for v in tag.label_set.all %}
+                            <span class="itype" ivalue="{{ v.id }}">{{ v.name }}</span>
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% endfor %}
+            {% elif type == '2' %}
+                {% for tag in tags %}
+                    <li>
+                        <div class="item-type">
+                            {{ tag.name }}：
+                            {% for v in tag.label_set.all %}
+                            <span class="itype" ivalue="{{ v.id }}">{{ v.name }}</span>
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% endfor %}
+            {% elif type == '3' %}
+                {% for tag in tags %}
+                    <li>
+                        <div class="item-type">
+                            {{ tag.name }}：
+                            {% for v in tag.label_set.all %}
+                            <span class="itype" ivalue="{{ v.id }}">{{ v.name }}</span>
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% endfor %}
+            {% endif %}
+
+            <li>
+                <div class="item-type">
+                    规格：
+                    <span class="standard" ivalue="1">单瓶</span>
+                    <span class="standard" ivalue="2">礼盒</span>
+                    <span class="standard" ivalue="3">整箱</span>
+
+                </div>
+            </li>
+
+            <li>
+                <div class="item-type">
+                    价格区间：
+                    <span class="price-range" ivalue="1">0-50</span>
+                    <span class="price-range" ivalue="2">50-200</span>
+                    <span class="price-range" ivalue="3">200-500</span>
+                    <span class="price-range" ivalue="4">500-1000</span>
+                    <span class="price-range" ivalue="5">1000以上</span>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="check-goods">
+        <ul class="goods">
+            {% for good in check_goods %}
+            <li class="check-wine">
+                <a href="{% url 'detail' %}?goods_id={{ good.id }}">
+                    <img src="{{ MEDIA_URL }}{{ good.image }}" alt="" class="check-wine-img">
+                </a>
+                <div class="check-wine-item">
+                    <div class="check-wine-item-name">{{ good.name }}</div>
+                    <div class="check-wine-item-info">
+                        <div class="check-wine-price">
+                            <font size="4px" face="黑体" color="#901a00">
+                                <b>RMB</b>
+                            </font>
+                            <font size="5px" color="#901a00">
+                                <b>{{ good.price }}</b>
+                            </font>
+                        </div>
+                        <div class="check-wine-btn">
+                            <a href="{% url 'detail' %}?goods_id={{ good.id }}">
+                                <span style="size: 3px; color: #fff; background: #a10000; padding: 4px">立即购买</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="box">
+            <div id="pagination3" class="page fl"></div>
+        </div>
+        <div id="{{ page_nums }}" style="display: none" class="pagenums"></div>
+    </div>
+
+
+
+</div>
+
+{% endblock main %}
