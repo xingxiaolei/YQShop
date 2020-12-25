@@ -18,23 +18,24 @@
 
         <div class="new-title">新品推荐</div>
 
+
         <div class="new-content">
             <ul>
-
+                {% for good in hot_goods %}
                 <li class="new-wine">
                     <div class="flag flag-left">New</div>
                     <a href="">
-                        <img src="" alt="" class="new-content-img">
+                        <img src="{{ MEDIA_URL }}{{ good.image }}" alt="" class="new-content-img">
                     </a>
                     <div class="wine-item">
-                        <div class="wine-item-name">【箱】张裕特选级赤霞珠干红葡萄酒750ml*6</div>
+                        <div class="wine-item-name">{{ good.name }}</div>
                         <div class="wine-item-info">
                             <div class="wine-price">
                                 <font size="4px" face="黑体" color="#901a00">
                                     <b>RMB</b>
                                 </font>
                                 <font size="5px" color="#901a00">
-                                    <b>399.00</b>
+                                    <b>{{ good.price }}</b>
                                 </font>
                             </div>
                             <div class="wine-btn">
@@ -45,30 +46,65 @@
                         </div>
                     </div>
                 </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="box-wine">
+        <img src="/media/box.jpg" alt="" class="box-wine-img">
+        <div class="new-content">
+            <ul>
+
+                {% for good in box_goods %}
+                <li class="new-wine">
+                    <a href="">
+                        <img src="{{ MEDIA_URL }}{{ good.image }}" alt="" class="new-content-img">
+                    </a>
+                    <div class="wine-item">
+                        <div class="wine-item-name">{{ good.name }}</div>
+                        <div class="wine-item-info">
+                            <div class="wine-price">
+                                <font size="4px" face="黑体" color="#901a00">
+                                    <b>RMB</b>
+                                </font>
+                                <font size="5px" color="#901a00">
+                                    <b>{{ good.price }}</b>
+                                </font>
+                            </div>
+                            <div class="wine-btn">
+                                <a href="">
+                                    <font size="3px" color="#fff" face="黑体">立即购买</font>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
 
             </ul>
         </div>
     </div>
 
     <div class="box-wine">
-        <img src="" alt="" class="box-wine-img">
-        <div class="more">查看更多>></div>
+        <img src="/media/single.jpg" alt="" class="box-wine-img">
         <div class="new-content">
             <ul>
 
-                <li>
+                {% for good in single_goods %}
+                <li class="new-wine">
                     <a href="">
-                        <img src="" alt="" class="new-content-img">
+                        <img src="{{ MEDIA_URL }}{{ good.image }}" alt="" class="new-content-img">
                     </a>
                     <div class="wine-item">
-                        <div class="wine-item-name">【箱】张裕特选级赤霞珠干红葡萄酒750ml*6</div>
+                        <div class="wine-item-name">{{ good.name }}</div>
                         <div class="wine-item-info">
                             <div class="wine-price">
                                 <font size="4px" face="黑体" color="#901a00">
                                     <b>RMB</b>
                                 </font>
                                 <font size="5px" color="#901a00">
-                                    <b>399.00</b>
+                                    <b>{{ good.price }}</b>
                                 </font>
                             </div>
                             <div class="wine-btn">
@@ -79,13 +115,46 @@
                         </div>
                     </div>
                 </li>
+                {% endfor %}
 
             </ul>
         </div>
     </div>
 
-    <div class="gift-wine"></div>
+    <div class="box-wine">
+        <img src="/media/gift.jpg" alt="" class="box-wine-img">
+        <div class="new-content">
+            <ul>
 
-    <div class="single-wine"></div>
+                {% for good in gift_goods %}
+                <li class="new-wine">
+                    <a href="">
+                        <img src="{{ MEDIA_URL }}{{ good.image }}" alt="" class="new-content-img">
+                    </a>
+                    <div class="wine-item">
+                        <div class="wine-item-name">{{ good.name }}</div>
+                        <div class="wine-item-info">
+                            <div class="wine-price">
+                                <font size="4px" face="黑体" color="#901a00">
+                                    <b>RMB</b>
+                                </font>
+                                <font size="5px" color="#901a00">
+                                    <b>{{ good.price }}</b>
+                                </font>
+                            </div>
+                            <div class="wine-btn">
+                                <a href="">
+                                    <font size="3px" color="#fff" face="黑体">立即购买</font>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+
 </div>
 {% endblock main %}

@@ -11,14 +11,22 @@ def global_settings(request):
         'MEDIA_URL': settings.MEDIA_URL
     }
 
-
 class Index(View):
     def get(self, request):
         bann = Banner.objects.filter(display=1)
 
+        hot_goods = Goods.objects.filter(status=1, index_display=1, hot=1)
+        box_goods = Goods.objects.filter(status=1, index_display=1, standard=3)
+        single_goods = Goods.objects.filter(status=1, index_display=1, standard=1)
+        gift_goods = Goods.objects.filter(status=1, index_display=1, standard=2)
+
 
         context = {
-            'bann': bann
+            'bann': bann,
+            'hot_goods': hot_goods,
+            'box_goods': box_goods,
+            'single_goods': single_goods,
+            'gift_goods': gift_goods
         }
 
         return render(request, 'index.html', context=context)

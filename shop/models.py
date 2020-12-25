@@ -105,6 +105,18 @@ class Goods(models.Model):
         (1, '上架')
     )
     status = models.SmallIntegerField(default=0, choices=choice, verbose_name='是否上架')
+    choice1 = (
+        (0, '否'),
+        (1, '是')
+    )
+    index_display = models.SmallIntegerField(default=0, choices=choice1, verbose_name='是否首页展示')
+
+    choice2 = (
+        (0, '否'),
+        (1, '是')
+    )
+    hot = models.SmallIntegerField(default=0, choices=choice2, verbose_name='是否爆款推荐')
+
     add_time = models.DateTimeField(default=datetime.now(), verbose_name='创建时间')
 
     def __str__(self):
