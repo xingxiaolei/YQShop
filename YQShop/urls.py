@@ -29,7 +29,8 @@ urlpatterns = [
     path('ueditor/', include('DjangoUeditor.urls')),
 
     path('', Index.as_view(), name='index'),
-    re_path('list/(?P<type_id>.*)', GoodsList.as_view(), name='list'),
+    # re_path('list/(?P<type_id>\d+)', GoodsList.as_view(), name='label_goods'),
+    re_path('^list/(?P<type_id>\d+)/(?P<page>\d+)/$', GoodsList.as_view(), name='list'),
     path('detail/', GoodsDetail.as_view(), name='detail'),
     re_path(r'^wish/$', wish, name='wish'),
     path('checkgoods/', check_goods, name='checkgoods'),

@@ -94,14 +94,27 @@
             {% endfor %}
         </ul>
 
-        <div class="box">
-            <div id="pagination3" class="page fl"></div>
+        <div class="pagenation">
+                {% if check_goods.has_previous %} {# 是否有上一页 #}
+				    <a href="/list/{{ type }}/{{ check_goods.previous_page_number }}">上一页</a>
+                {% endif %}
+                {% for pindex in pages %}
+                    {% if pindex == check_goods.number %}
+				        <a href="/list/{{ type }}/{{ pindex }}" class="active">{{ pindex }}</a>
+                    {% else %}
+                        <a href="/list/{{ type }}/{{ pindex }}">{{ pindex }}</a>
+                    {% endif %}
+                {% endfor  %}
+                {% if check_goods.has_next %}
+				    <a href="/list/{{ type }}/{{ check_goods.next_page_number }}">下一页></a>
+                {% endif %}
         </div>
-        <div id="{{ page_nums }}" style="display: none" class="pagenums"></div>
     </div>
 
-
-
+{#        <div class="box">#}
+{#            <div id="pagination3" class="page fl"></div>#}
+{#        </div>#}
+{#        <div id="{{ page_nums }}" style="display: none" class="pagenums"></div>#}
 </div>
 
 {% endblock main %}
