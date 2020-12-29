@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="list-main">
+        <strong>搜索结果：</strong>
+        <div class="check-goods">
+    {% if query %}
+        <ul class="goods">
+            {% for good in page %}
+            <li class="check-wine">
+                <a href="{% url 'detail' %}?goods_id={{ good.object.id }}">
+                    <img src="{{ MEDIA_URL }}{{ good.object.image }}" alt="" class="check-wine-img">
+                </a>
+                <div class="check-wine-item">
+                    <div class="check-wine-item-name">{{ good.object.name }}</div>
+                    <div class="check-wine-item-info">
+                        <div class="check-wine-price">
+                            <font size="4px" face="黑体" color="#901a00">
+                                <b>RMB</b>
+                            </font>
+                            <font size="5px" color="#901a00">
+                                <b>{{ good.object.price }}</b>
+                            </font>
+                        </div>
+                        <div class="check-wine-btn">
+                            <a href="{% url 'detail' %}?goods_id={{ good.object.id }}">
+                                <span style="size: 3px; color: #fff; background: #a10000; padding: 4px">立即购买</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                {% empty %}
+                <span>没有找到相关商品</span>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+        <div class="pagenation">
+                {% if page.has_previous %} {# 是否有上一页 #}
+				    <a href="?q={{ query }}&page={{ page.previous_page_number }}">上一页</a>
+                {% endif %}
+                {% for pindex in paginator.page_range %}
+                    {% if pindex == page.number %}
+				        <a href="?q={{ query }}&page={{ pindex }}" class="active">{{ pindex }}</a>
+                    {% else %}
+                        <a href="?q={{ query }}&page={{ pindex }}">{{ pindex }}</a>
+                    {% endif %}
+                {% endfor  %}
+                {% if page.has_next %}
+				    <a href="?q={{ query }}&page={{ page.next_page_number }}">下一页></a>
+                {% endif %}
+        </div>
+    </div>
+    </div>
+{% endblock main %}

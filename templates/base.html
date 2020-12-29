@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>英齐小店</title>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <title>北京张裕爱斐堡国际酒庄</title>
+    <meta name="keywords" content="北京张裕爱斐堡国际酒庄,爱斐堡国际酒庄,张裕酒庄,张裕爱斐堡,爱斐堡葡萄酒,红酒,葡萄酒">
+    <meta name="descripiton" content="changyuafip张裕爱斐堡,北京张裕爱斐堡国际酒庄,中国顶级酒庄、张裕葡萄酒销售平台、爱斐堡葡萄酒生产方,酒庄包含鲜食葡萄园、酿酒葡萄园、葡萄酒酿造车间、葡萄酒灌装包装车间、地下酒窖、酒文化博物馆、欧式建筑酒店、自然风景区。产品包含张裕爱斐堡葡萄酒、张裕葡萄酒、进口葡萄酒、景区门票、礼品、葡萄酒品鉴、葡萄酒培训、住宿、餐饮、会议。长年为婚庆、婚纱摄影、车展、影视拍摄提供场地。">
     <link rel="icon" href="http://www.jiuxianfeng.com/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/layui/css/layui.css">
     <link rel="stylesheet" href="/static/css/index.css">
@@ -32,8 +34,8 @@
                 </div>
 
                 <div class="search">
-                    <form action="">
-                    <input type="text" placeholder="请输入商品名称" id="in"><button class="btn-search">搜索</button>
+                    <form action="{% url 'haystack_search' %}" method="get">
+                        <input type="text" name="q" placeholder="请输入商品名称" id="in"><button type="submit" class="btn-search">搜索</button>
                     </form>
                 </div>
             </div>

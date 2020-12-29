@@ -19,20 +19,22 @@ import xadmin, DjangoUeditor
 from django.views.static import serve
 from YQShop import settings
 from shop.views import Index, GoodsList, GoodsDetail, wish, check_goods
+from haystack.views import SearchView
 
 
 xadmin.autodiscover()
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+
     path('xadmin/', xadmin.site.urls),
     re_path('media/(?P<path>.*)', serve, {'document_root': settings.MEDIA_ROOT}),
     path('ueditor/', include('DjangoUeditor.urls')),
 
     path('', Index.as_view(), name='index'),
-    # re_path('list/(?P<type_id>\d+)', GoodsList.as_view(), name='label_goods'),
+
     re_path('^list/(?P<type_id>\d+)/(?P<page>\d+)/$', GoodsList.as_view(), name='list'),
     path('detail/', GoodsDetail.as_view(), name='detail'),
     re_path(r'^wish/$', wish, name='wish'),
     path('checkgoods/', check_goods, name='checkgoods'),
+    path('search/', SearchView(), name='haystack_search')
 
 ]

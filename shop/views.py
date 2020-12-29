@@ -87,7 +87,7 @@ class GoodsList(View):
 
             check_goods = Goods.objects.filter(type=int(type_id), status=1)
 
-            paginator = Paginator(check_goods, 1)
+            paginator = Paginator(check_goods, 15)
 
             num_pages = paginator.num_pages
 
